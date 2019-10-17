@@ -14,3 +14,10 @@ export const postResy = (reservation) => {
   return fetch('http://localhost:3001/api/v1/reservations', options)
     .then(res => res.json())  
 }
+
+export const deleteResy = (id) => {
+  return fetch(`http://localhost:3001/api/v1/reservations/${id}`, {
+        method: 'DELETE'
+      })
+      .then(res => res.json())
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Cards from '../Cards/Cards';
 import Form from '../Form/Form';
-import { resyFetch, postResy } from '../apiCalls.js';
+import { resyFetch, postResy, deleteResy } from '../apiCalls.js';
 import './App.css';
 
 class App extends Component {
@@ -14,8 +14,6 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    // fetch('http://localhost:3001/api/v1/reservations')
-    //   .then(res => res.json())
     resyFetch()
       .then(data => {
         this.setState({
@@ -36,12 +34,12 @@ class App extends Component {
 
   cxReservation = (id, event) => {
     event.preventDefault();
-    fetch(`http://localhost:3001/api/v1/reservations/${id}`, {method: 'DELETE'})
-      .then(res => res.json())
+    deleteResy(id)
       .then(data => this.setState({
         reservations: data
       }))   
-  }
+      .catch(err => console.error(err))
+  }   
 
   render() {
     const resData = !this.state.isLoading ? <Cards resData={this.state.reservations} cxReservation={this.cxReservation}/> : console.log('not yet')
