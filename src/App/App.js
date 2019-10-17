@@ -24,7 +24,6 @@ class App extends Component {
   }
 
   addReservation = (reservation) => {
-    console.log(reservation)
     const options = {
       method: 'POST',
       body: JSON.stringify( reservation ),
@@ -37,8 +36,17 @@ class App extends Component {
       }))
   }
 
+  cxReservation = (id, event) => {
+    event.preventDefault();
+    fetch(`http://localhost:3001/api/v1/reservations/${id}`, {method: 'DELETE'})
+      .then(res => res.json())
+      .then(data => this.setState({
+        reservations: data
+      }))   
+  }
+
   render() {
-    const resData = !this.state.isLoading ? <Cards resData={this.state.reservations}/> : console.log('not yet')
+    const resData = !this.state.isLoading ? <Cards resData={this.state.reservations} cxReservation={this.cxReservation}/> : console.log('not yet')
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>

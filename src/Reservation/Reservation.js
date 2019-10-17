@@ -3,7 +3,7 @@ import './Reservation.css'
 
 
 
-const Reservation = ({id, name, date, time, number}) => {
+const Reservation = ({id, name, date, time, number, cxReservation}) => {
   return (
     <section data-id={id} className='section section--reservation'>
       <div>
@@ -12,6 +12,7 @@ const Reservation = ({id, name, date, time, number}) => {
         <p>{time}</p>
         <p>Number of Guests: {number}</p>
       </div> 
+      <button onClick={event => cxReservation(id, event)}>Cancel</button>
     </section>
   )
 }

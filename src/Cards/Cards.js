@@ -14,6 +14,7 @@ const Cards = (props) => {
         date={res.date}
         time={res.time}
         number={res.number}
+        cxReservation={props.cxReservation}
       /> 
     )
   })
