@@ -9,7 +9,7 @@ const Reservation = ({id, name, date, time, number, cxReservation}) => {
       <div>
         <h2>{name}</h2>
         <p>{date}</p>
-        <p>{time}</p>
+        <p>{time} pm</p>
         <p>Number of Guests: {number}</p>
       </div> 
       <button onClick={event => cxReservation(id, event)}>Cancel</button>

@@ -7,7 +7,9 @@ exports[`Reservation should match the snapshot 1`] = `
   <div>
     <h2 />
     <p />
-    <p />
+    <p>
+       pm
+    </p>
     <p>
       Number of Guests: 
     </p>
