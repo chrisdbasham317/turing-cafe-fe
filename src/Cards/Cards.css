@@ -1,0 +1,10 @@
+.section--cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 73vh;
+  justify-content: space-around;
+  margin-top: 25px;
+  overflow: scroll;
+  width: 100vw;
+}
