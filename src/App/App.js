@@ -23,8 +23,8 @@ class App extends Component {
       })
   }
 
-  addReservation = (reservation, event) => {
-    event.preventDefault()
+  addReservation = (reservation) => {
+    console.log(reservation)
     const options = {
       method: 'POST',
       body: JSON.stringify( reservation ),
@@ -33,7 +33,7 @@ class App extends Component {
     fetch('http://localhost:3001/api/v1/reservations', options)
       .then(res => res.json())
       .then(data => this.setState({
-        reservations: data
+        reservations: [...this.state.reservations, data]
       }))
   }
 

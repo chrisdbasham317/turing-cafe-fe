@@ -6,10 +6,10 @@ class Form extends Component {
   constructor() {
     super();
     this.state = {
-      resName: '',
-      resDate: '',
-      resTime: '',
-      numGuests: ''
+      name: '',
+      date: '',
+      time: '',
+      number: ''
     }
   }
 
@@ -17,17 +17,21 @@ class Form extends Component {
     this.setState({
       [event.target.name]: event.target.value
     })
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.addReservation(this.state);
   }
 
   render() {
-    console.log(this.props)
     return (
       <form>
-        <input type='text' placeholder='Name' name='resName' onChange={event => this.handleChange(event)}></input>
-        <input type='text' placeholder='Date (mm/dd)' name='resDate'></input>
-        <input type='text' placeholder='Time' name='resTime'></input>
-        <input type='text' placeholder='Number of guests' name='numGuests'></input>
-        <button className='button--make-resy'>Make Reservation</button>
+        <input type='text' placeholder='Name' name='name' onChange={event => this.handleChange(event)}></input>
+        <input type='text' placeholder='Date (mm/dd)' name='date' onChange={event => this.handleChange(event)}></input>
+        <input type='text' placeholder='Time' name='time' onChange={event => this.handleChange(event)}></input>
+        <input type='number' placeholder='Number of guests' name='number' onChange={event => this.handleChange(event)}></input>
+        <button className='button--make-resy' onClick={event => this.handleSubmit(event)}>Make Reservation</button>
       </form>
     )
   }
