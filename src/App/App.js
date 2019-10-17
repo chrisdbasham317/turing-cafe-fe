@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Cards from '../Cards/Cards';
 import Form from '../Form/Form';
+import { resyFetch } from '../apiCalls.js';
 import './App.css';
 
 class App extends Component {
@@ -13,14 +14,16 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    fetch('http://localhost:3001/api/v1/reservations')
-      .then(res => res.json())
+    // fetch('http://localhost:3001/api/v1/reservations')
+    //   .then(res => res.json())
+    resyFetch()
       .then(data => {
         this.setState({
           isLoading: false,
           reservations: data
         })
       })
+      .catch(err => console.error(err))
   }
 
   addReservation = (reservation) => {

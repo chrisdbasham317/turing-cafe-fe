@@ -12,5 +12,10 @@ exports[`Reservation should match the snapshot 1`] = `
       Number of Guests: 
     </p>
   </div>
+  <button
+    onClick={[Function]}
+  >
+    Cancel
+  </button>
 </section>
 `;
