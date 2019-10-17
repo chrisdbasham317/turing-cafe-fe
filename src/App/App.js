@@ -22,13 +22,19 @@ class App extends Component {
   }
 
   render() {
-    const resData = !this.state.isLoading ? 
-       console.log(this.state.reservations) : console.log('not yet')
+    const resData = !this.state.isLoading ? this.state.reservations.map( res => {
+      return <div>
+        <h2>{res.name}</h2>
+        <p>{res.date}</p>
+        <p>{res.time}</p>
+        <p>Number of Guests: {res.number}</p>
+      </div>  
+    }) : console.log('not yet')
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form'>
-
+          {resData}
         </div>
         <div className='resy-container'>
           
