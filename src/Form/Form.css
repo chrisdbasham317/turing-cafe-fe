@@ -1,0 +1,17 @@
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+input {
+  margin-right: 41px;
+  padding: 4px;
+  width: 15vw;
+}
+
+button {
+  background: #008080;
+  color: #ffffff;
+  width: 15vw;
+}
