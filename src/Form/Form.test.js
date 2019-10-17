@@ -58,5 +58,20 @@ describe('Form', () => {
     };
     wrapper.instance().handleChange(mockEvent)
     expect(wrapper.state('number')).toEqual(4);
-  });  
+  });
+  
+  it('should call addReservation when handleSubmit is called', () => {
+    const state = {
+      name: 'Chris',
+      date: '06/30',
+      time: '6:30',
+      number: 4
+    }
+    const mockEvent = {
+      preventDefault: jest.fn()
+    }
+    wrapper.setState(state);
+    wrapper.instance().handleSubmit(mockEvent)
+    expect(addReservation).toHaveBeenCalledWith(state);
+  });
 })
